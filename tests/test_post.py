@@ -1,7 +1,10 @@
+from src.assertions import assert_success, assert_json_response
+
 def test_get_post(api_client):
     response = api_client.get("/posts/1")
 
-    assert response.status_code == 200
+    assert_success(response)
+    assert_json_response(response)
 
     data = response.json()
 
